@@ -961,3 +961,99 @@ spec:
     id: spc_fe78e1a64efc4b04bb7eb32477fb1ea0
     created: 1753180592087
     modified: 1753184738031
+testSuites:
+  - name: Accounts API Test Suite
+    meta:
+      id: uts_83f289cb91e549138f15385ed2de3b17
+      created: 1753245969587
+      modified: 1753246087873
+      sortKey: -1753245969587
+    tests:
+      - name: Create an Account Returns 201
+        meta:
+          id: ut_e9cfe33924b14320999e027ef3a14d34
+          created: 1753246105583
+          modified: 1753247179350
+          sortKey: -1753246808670.75
+        requestId: req_c872b83d8c3b429297739eb664566d49
+        code: const response = await
+          insomnia.send();expect(response.status).to.equal(201);const account =
+          JSON.parse(response.data);expect(account).to.have.property('account_id').that.is.a('string');expect(account).to.have.property('type').that.is.a('string');expect(account).to.have.property('balance').that.is.a('number');
+      - name: Retrieve a Single account Returns 200
+        meta:
+          id: ut_e0a2e10002034016befc464ff284ab37
+          created: 1753246179533
+          modified: 1753247175279
+          sortKey: -1753246808670.5
+        requestId: req_465052f60148473cb15ef2e84580b135
+        code: const response = await
+          insomnia.send();expect(response.status).to.equal(200);const account =
+          JSON.parse(response.data);expect(account).to.have.property('account_id').that.is.a('string');
+      - name: Health Check end point Returns 200
+        meta:
+          id: ut_7e64af71a0ae4b7dacefc52a92a779d2
+          created: 1753246484174
+          modified: 1753247168134
+          sortKey: -1753246808671
+        requestId: req_1ca6c93cc42e4b478ef379cf75394fcb
+        code: const response = await
+          insomnia.send();expect(response.status).to.equal(200);const body =
+          response.data;expect(body).to.be.a('string');expect(body.toLowerCase()).to.include('accounts
+          api');
+      - name: Credit an account Returns 200
+        meta:
+          id: ut_f56f760be7d54651971fadfbcd56dd7f
+          created: 1753246672349
+          modified: 1753246970051
+          sortKey: -1753246672349
+        requestId: req_195b655cb07a4d5abd9deaceb9340e86
+        code: const response = await
+          insomnia.send();expect(response.status).to.equal(200);const account =
+          JSON.parse(response.data);expect(account).to.have.property('balance').that.is.a('number');
+      - name: Debit an account Returns 200
+        meta:
+          id: ut_ff3e84089a8a4f928d8ffd4c30e63462
+          created: 1753246753227
+          modified: 1753246958601
+          sortKey: -1753246780948.5
+        requestId: req_9e9e57221acd4838a0e20ac136072a6a
+        code: const response = await
+          insomnia.send();expect(response.status).to.equal(200);const account =
+          JSON.parse(response.data);expect(account).to.have.property('balance').that.is.a('number');
+      - name: List all accounts
+        meta:
+          id: ut_11d16e20896a4c5b98e724d01c898d49
+          created: 1753246808670
+          modified: 1753246911416
+          sortKey: -1753246808670
+        requestId: req_753d25d450064e74a9ed6dc0e1274729
+        code: const response = await
+          insomnia.send();expect(response.status).to.equal(200);const accounts =
+          JSON.parse(response.data);expect(accounts).to.be.an('array');if
+          (accounts.length > 0) {const account =
+          accounts[0];expect(account).to.have.property('account_id');}
+  - name: Test Practice
+    meta:
+      id: uts_b1cdbe096ef84039b87300607abf5b41
+      created: 1753246587436
+      modified: 1753246600851
+      sortKey: -1753246587436
+    tests:
+      - name: Returns 200
+        meta:
+          id: ut_27b0f8e2cc2d4a4dbf8dd1ebf413be05
+          created: 1753246621346
+          modified: 1753246621346
+          sortKey: -1753246621346
+        code: |-
+          const response1 = await insomnia.send();
+          expect(response1.status).to.equal(200);
+      - name: Returns 200
+        meta:
+          id: ut_c07f0dd966f242b39680d8cba76af11e
+          created: 1753246627490
+          modified: 1753246627490
+          sortKey: -1753246627490
+        code: |-
+          const response1 = await insomnia.send();
+          expect(response1.status).to.equal(200);
