@@ -19,11 +19,17 @@ collection:
         meta:
           id: req_753d25d450064e74a9ed6dc0e1274729
           created: 1753185270110
-          modified: 1753185270110
+          modified: 1753257190534
           isPrivate: false
           description: Returns a list of all accounts with basic details.
           sortKey: -1753185270110
         method: GET
+        headers:
+          - id: pair_5652fa3685064a348828688cd72ffb8d
+            name: api_key
+            value: "{{ _.api_key }}"
+            description: ""
+            disabled: true
         scripts:
           preRequest: ""
           afterResponse: ""
@@ -516,7 +522,7 @@ environments:
       meta:
         id: env_ede376f9ed154cff8990b2e4d8a0a902
         created: 1753185270077
-        modified: 1753187133067
+        modified: 1753256817995
         isPrivate: false
         sortKey: 1753185270077
       data:
@@ -524,6 +530,10 @@ environments:
         host: kong-1b683354d5euvprhl.kongcloud.dev
         base_url: "{{ _.scheme }}://{{ _.host }}"
         accountId: 75ce6102-941e-4d5f-baf8-3294e6da42b6
+        api_key: "{% vault 'hashicorp', 'cloudCred_aecf0f6494a34dc7acf3cd3981bd4e8f',
+          'eyJzZWNyZXROYW1lIjoidHJhbnNhY3Rpb25zLWFwaS9hcGkta2V5Iiwia3ZWZXJzaW9u\
+          IjoidjIiLCJzZWNyZXRFbmdpbmVQYXRoIjoic2VjcmV0Iiwic2VjcmV0S2V5IjoidmFsd\
+          WUifQ==' %}"
 spec:
   contents:
     openapi: 3.0.3
