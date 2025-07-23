@@ -571,7 +571,7 @@ spec:
             "200":
               description: API is healthy
       /accounts:
-        DELETE:
+        get:
           tags:
             - accounts
           operationId: listAccounts
@@ -976,7 +976,7 @@ spec:
   meta:
     id: spc_fe78e1a64efc4b04bb7eb32477fb1ea0
     created: 1753180592087
-    modified: 1753250059185
+    modified: 1753252473175
 testSuites:
   - name: Accounts API Test Suite
     meta:
