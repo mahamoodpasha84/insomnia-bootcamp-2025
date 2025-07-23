@@ -977,3 +977,23 @@ spec:
     id: spc_fe78e1a64efc4b04bb7eb32477fb1ea0
     created: 1753180592087
     modified: 1753184738031
+testSuites:
+  - name: New Suite
+    meta:
+      id: uts_8f00f9fa5c36496494832ec8647982a1
+      created: 1753249593687
+      modified: 1753249593687
+      sortKey: -1753249593687
+    tests:
+      - name: Returns 200
+        meta:
+          id: ut_b2708a2a82da422e9367c0f18f22968b
+          created: 1753249653674
+          modified: 1753249767730
+          sortKey: -1753249653674
+        requestId: req_753d25d450064e74a9ed6dc0e1274729
+        code: const response = await
+          insomnia.send();expect(response.status).to.equal(200);const accounts =
+          JSON.parse(response.data);expect(accounts).to.be.an('array');if
+          (accounts.length > 0) {const account =
+          accounts[0];expect(account).to.have.property('account_id');}
