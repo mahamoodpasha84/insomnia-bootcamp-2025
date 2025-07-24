@@ -25,11 +25,8 @@ collection:
           sortKey: -1753185270110
         method: GET
         headers:
-          - id: pair_5652fa3685064a348828688cd72ffb8d
-            name: api_key
+          - name: api_key
             value: "{{ _.api_key }}"
-            description: ""
-            disabled: true
         scripts:
           preRequest: ""
           afterResponse: ""
@@ -1095,8 +1092,9 @@ testSuites:
         meta:
           id: ut_c07f0dd966f242b39680d8cba76af11e
           created: 1753246627490
-          modified: 1753246627490
+          modified: 1753347842511
           sortKey: -1753246627490
+        requestId: req_753d25d450064e74a9ed6dc0e1274729
         code: |-
           const response1 = await insomnia.send();
           expect(response1.status).to.equal(200);
